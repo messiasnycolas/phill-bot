@@ -15,15 +15,17 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com"
+        "url": "https://github.com/messiasnycolas/phill-bot"
     },
     "dependencies": {
+        "@azure/ai-text-analytics": "^5.1.0",
         "botbuilder": "~4.14.0",
         "dotenv": "~8.2.0",
         "replace": "~1.2.0",
         "restify": "~8.5.1"
     },
     "devDependencies": {
+        "@types/node": "^10.17.27",
         "@types/restify": "8.4.2",
         "nodemon": "^2.0.4",
         "tslint": "^6.1.2",

@@ -1,16 +1,17 @@
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-
-import { ActivityHandler, MessageFactory } from 'botbuilder';
+import { ActivityHandler, ActivityTypes, MessageFactory } from 'botbuilder';
 
 export class EchoBot extends ActivityHandler {
     constructor() {
         super();
-        // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
+
         this.onMessage(async (context, next) => {
+
+            await context.sendActivity({
+                type: ActivityTypes.Typing
+            });
+
             const replyText = `Echo: ${ context.activity.text }`;
             await context.sendActivity(MessageFactory.text(replyText, replyText));
-            // By calling next() you ensure that the next BotHandler is run.
             await next();
         });
 
@@ -22,7 +23,6 @@ export class EchoBot extends ActivityHandler {
                     await context.sendActivity(MessageFactory.text(welcomeText, welcomeText));
                 }
             }
-            // By calling next() you ensure that the next BotHandler is run.
             await next();
         });
     }
